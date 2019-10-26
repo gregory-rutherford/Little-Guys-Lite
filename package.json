@@ -1,0 +1,29 @@
+{
+  "name": "little-guys-lite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gregory-rutherford/Little-Guys-Lite.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gregory-rutherford/Little-Guys-Lite/issues"
+  },
+  "homepage": "https://github.com/gregory-rutherford/Little-Guys-Lite#readme",
+  "dependencies": {
+    "@feathersjs/express": "^4.3.7",
+    "@feathersjs/feathers": "^4.3.7",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "feathers-mongoose": "^8.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.7.7",
+    "mongoose-unique-validator": "^2.0.3"
+  }
+}

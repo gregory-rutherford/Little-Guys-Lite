@@ -5,8 +5,8 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const service = require("feathers-mongoose");
 
-const Model = require("./models/task");
-const db = require("./models/index");
+const Model = require("./Models/user.js");
+const db = require("./Models/index");
 
 mongoose.Promise = global.Promise;
 
@@ -21,3 +21,25 @@ app.use(express.urlencoded({ extended: true }));
 mongoose.set("useFindAndModify", false);
 
 app.configure(express.rest());
+
+
+app.use("/users", service({
+    Model,
+    lean: false    
+}));
+
+app.service("users").create({
+    username: "gregorford",
+    email: "gregory.rutherford@unt.edu",
+    bio: "one cool guy",
+    image: "hey now"
+}).then(function(user){
+    console.log("created user", user)
+});
+
+app.use(express.errorHandler());
+
+const port = 3030 || process.env.MONGODB_URI;
+app.listen(port, () => {
+  console.log(`Feather server listening on port ${port}`);
+});
