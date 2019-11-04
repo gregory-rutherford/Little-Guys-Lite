@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 
-
 const Estimate = function Estimate() {
   const [custName, setCustName] = useState("");
-  const [homeType, setHomeType] = useState("");
+  const [homeType, setHomeType] = useState("house");
   const [sqFoot, setSqFoot] = useState("");
   const [stairs, setStairs] = useState("");
   const [walk, setWalk] = useState("");
@@ -15,15 +14,13 @@ const Estimate = function Estimate() {
       case "custName":
         setCustName(value);
         break;
-      case"homeType":
-      setHomeType(value);
-      break; 
+      case "homeType":
+        setHomeType(value);
+        break;
       default:
         break;
     }
   };
-
-  
 
   return (
     <div>
@@ -33,6 +30,7 @@ const Estimate = function Estimate() {
             type="text"
             name="custName"
             onChange={handleInputChange}
+            placeholder="Customer Name"
           ></input>
         </div>
         <div>
@@ -57,8 +55,11 @@ const Estimate = function Estimate() {
               <option>3 Bedroom</option>
             </select>
           )}
+          <div></div>
         </div>
       </form>
+      {/* summary box that will display once all types have been declared */}
+      {homeType && custName != "" ? <p>{homeType}</p> : <p></p>}
     </div>
   );
 };
